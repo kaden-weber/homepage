@@ -3,18 +3,16 @@
 (() => {
 	const init = () => {
 		updateClock();
-		setInterval(() => {
-			updateClock();
-		}, 1000);
+		setInterval(updateClock, 1000);
 	};
 
-	const updateClock = () => {
+	function updateClock() {
 		resetClock();
 		getCurrentTime();
 		displayCurrentTime();
 	};
 
-	const getCurrentTime = () => {
+	function getCurrentTime() {
 		let fullDate = new Date();
 		let month = fullDate.getMonth();
 		let date = fullDate.getDate();
@@ -39,7 +37,7 @@
 		};
 	};
 
-	const displayCurrentTime = () => {
+	function displayCurrentTime() {
 		let day = window.clock.time.day;
 		let month = window.clock.time.month;
 		let date = window.clock.time.date;
@@ -72,29 +70,18 @@
 		date = (date <= 9) ? ("0" + date) : date;
 
 		// targets the html
-		const dayHtml = document.getElementsByClassName('day-alpha')[0];
-		const mobileDayHtml = document.getElementsByClassName('day-alpha-mobile')[0];
-		const monthHtml = document.getElementsByClassName('month-alpha')[0];
-		const dateHtml = document.getElementsByClassName('date-number')[0];
-		const yearHtml = document.getElementsByClassName('year-number')[0];
-		const hoursHtml = document.getElementsByClassName('hours')[0];
-		const minutesHtml = document.getElementsByClassName('minutes')[0];
-		const secondsHtml = document.getElementsByClassName('seconds')[0];
-		const periodHtml = document.getElementsByClassName(period)[0];
-
-		// changes the html values
-		dayHtml.innerHTML = dayText;
-		mobileDayHtml.innerHTML = mobileDays[day];
-		monthHtml.innerHTML = months[month];
-		dateHtml.innerHTML = date;
-		yearHtml.innerHTML = year;
-		hoursHtml.innerHTML = hours;
-		minutesHtml.innerHTML = minutes;
-		secondsHtml.innerHTML = seconds;
-		periodHtml.classList.add("light-on");
+		const dayHtml = document.getElementsByClassName('day-alpha')[0].innerHTML = dayText;
+		const mobileDayHtml = document.getElementsByClassName('day-alpha-mobile')[0].innerHTML = mobileDays[day];
+		const monthHtml = document.getElementsByClassName('month-alpha')[0].innerHTML = months[month];
+		const dateHtml = document.getElementsByClassName('date-number')[0].innerHTML = date;
+		const yearHtml = document.getElementsByClassName('year-number')[0].innerHTML = year;
+		const hoursHtml = document.getElementsByClassName('hours')[0].innerHTML = hours;
+		const minutesHtml = document.getElementsByClassName('minutes')[0].innerHTML = minutes;
+		const secondsHtml = document.getElementsByClassName('seconds')[0].innerHTML = seconds;
+		const periodHtml = document.getElementsByClassName(period)[0].classList.add("light-on");
 	};
 
-	const resetClock = () => {
+	function resetClock() {
 		const lights = document.querySelectorAll(".light-on");
 
 		if(lights) {
