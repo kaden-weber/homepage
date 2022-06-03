@@ -2,6 +2,7 @@
 
 :root {
   --size: 2.5;
+  --offColor: #191919;
 }
 
 /*DIGITAL CLOCK FONT*/
@@ -61,10 +62,13 @@ body .clock-display {
   z-index: 100;
 }
 .date-field div p.placeholder {
-  color: #2b2828;
+  color: var(--offColor);
   position: absolute;
   top: 0;
   z-index: 50;
+}
+.datePlaceholder {
+  color: var(--offColor);
 }
 .date-field div.day-of-week-mobile {
   display: none;
@@ -78,7 +82,70 @@ body .clock-display {
   font-family: sans-serif;
   text-transform: uppercase;
 }
+
+/* CLOCK */
+.clock-field {
+  margin: calc(5px * var(--size)) 0;
+  display: flex;
+  justify-content: center;
+}
+.clock-field div {
+  display: inline-block;
+  position: relative;
+}
+.clock-field div p {
+  font-size: calc(100px * var(--size));
+  position: relative;
+  z-index: 100;
+}
+.clock-field .numbers .placeholder {
+  color: var(--offColor);
+  position: absolute;
+  top: 0;
+  z-index: 50;
+}
+.clock-field .numbers .type {
+  font-size: calc(10px * var(--size));
+  font-weight: bold;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  margin-top: calc(-10px * var(--size));
+}
+.clock-field .am-pm {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  width: calc(20px * var(--size));
+}
+.clock-field .am-pm div p {
+  font-size: calc(12px * var(--size));
+  font-weight: bold;
+  width: 100%;
+}
+.clock-field .am,
+.clock-field .pm {
+  color: var(--offColor);
+}
+
+/* Resizability */
+@media (max-width: 1248px) {
+  :root {
+    --size: 2.2;
+  }
+}
+@media (max-width: 1074px) {
+  :root {
+    --size: 1.8;
+  }
+}
+@media (max-width: 880px) {
+  :root {
+    --size: 1.4;
+  }
+}
 @media (max-width: 768px) {
+  :root {
+    --size: 1.0;
+  }
   .date-field {
     justify-content: space-evenly;
   }
@@ -137,50 +204,6 @@ body .clock-display {
     font-size: calc(50px * var(--size));
   }
 }
-
-/* CLOCK */
-.clock-field {
-  margin: calc(5px * var(--size)) 0;
-  display: flex;
-  justify-content: center;
-}
-.clock-field div {
-  display: inline-block;
-  position: relative;
-}
-.clock-field div p {
-  font-size: calc(100px * var(--size));
-  position: relative;
-  z-index: 100;
-}
-.clock-field .numbers .placeholder {
-  color: #2b2828;
-  position: absolute;
-  top: 0;
-  z-index: 50;
-}
-.clock-field .numbers .type {
-  font-size: calc(10px * var(--size));
-  font-weight: bold;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  margin-top: calc(-10px * var(--size));
-}
-.clock-field .am-pm {
-  font-family: sans-serif;
-  text-transform: uppercase;
-  width: calc(20px * var(--size));
-}
-.clock-field .am-pm div p {
-  font-size: calc(12px * var(--size));
-  font-weight: bold;
-  width: 100%;
-}
-.clock-field .am,
-.clock-field .pm {
-  color: #2b2828;
-}
-
 @media (max-width: 350px) {
   .date-field div p {
     font-size: calc(20px * var(--size));
@@ -189,7 +212,6 @@ body .clock-display {
     font-size: calc(43px * var(--size));
   }
 }
-
 @media (max-width: 320px) {
   .clock-field div p {
     font-size: calc(40px * var(--size));

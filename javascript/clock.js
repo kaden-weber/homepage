@@ -60,10 +60,10 @@
 		//formats day
 		let days = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
 		let dayText = ``;
-		if(days[day].length === 6) dayText = `<span style="color: #2b2828;">ooo</span>${days[day]}`;
-		if(days[day].length === 7) dayText = `<span style="color: #2b2828;">oo</span>${days[day]}`;
-		if(days[day].length === 8) dayText = `<span style="color: #2b2828;">o</span>${days[day]}`;
-		if(days[day].length === 9) dayText = `<span style="color: #2b2828;"></span>${days[day]}`;
+		if(days[day].length === 6) dayText = `<span class="datePlaceholder">ooo</span>${days[day]}`;
+		if(days[day].length === 7) dayText = `<span class="datePlaceholder">oo</span>${days[day]}`;
+		if(days[day].length === 8) dayText = `<span class="datePlaceholder">o</span>${days[day]}`;
+		if(days[day].length === 9) dayText = `<span class="datePlaceholder"></span>${days[day]}`;
 		//formats mobile day
 		let mobileDays = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 		//formats month
