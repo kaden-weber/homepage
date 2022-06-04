@@ -11,19 +11,13 @@
   src: url("../fonts/digital-7.ttf");
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
 body {
-  background-color: #000000;
-  font-family: "digital-7", sans-serif;
   padding: calc(50px * var(--size)) calc(20px * var(--size));
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-body h1 {
+.clock-display h1 {
   font-size: calc(14px * var(--size));
   font-weight: bold;
   text-align: center;
@@ -31,7 +25,14 @@ body h1 {
   font-family: sans-serif;
   padding-bottom: calc(15px * var(--size));
 }
-body .clock-display {
+.clock-display p {
+  margin: 0;
+}
+.clock-display {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-family: "digital-7", sans-serif;
   display: inline-block;
   text-align: center;
   padding: calc(15px * var(--size)) calc(30px * var(--size));
@@ -48,7 +49,6 @@ body .clock-display {
 
 /* DATE */
 .date-field {
-  margin: calc(5px * var(--size)) 0;
   display: flex;
   justify-content: space-between;
 }
@@ -85,7 +85,6 @@ body .clock-display {
 
 /* CLOCK */
 .clock-field {
-  margin: calc(5px * var(--size)) 0;
   display: flex;
   justify-content: center;
 }
