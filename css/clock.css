@@ -12,10 +12,9 @@
 }
 
 body {
-  padding: calc(50px * var(--size)) calc(20px * var(--size));
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  background-color: #000000;
 }
 .clock-display h1 {
   font-size: calc(14px * var(--size));
@@ -30,7 +29,6 @@ body {
 }
 .clock-display {
   margin: 0;
-  padding: 0;
   line-height: 1;
   font-family: "digital-7", sans-serif;
   display: inline-block;
@@ -41,46 +39,12 @@ body {
   margin: calc(60px * var(--size)) auto 0 auto;
   background-color: #000000;
   color: #ffffff;
-  transform: skew(-4deg);
 }
 .light-on {
   color: #ffffff !important;
 }
-
-/* DATE */
-.date-field {
-  display: flex;
-  justify-content: space-between;
-}
-.date-field div {
-  display: inline-block;
-  position: relative;
-}
-.date-field div p {
-  font-size: calc(34px * var(--size));
-  position: relative;
-  z-index: 100;
-}
-.date-field div p.placeholder {
-  color: var(--offColor);
-  position: absolute;
-  top: 0;
-  z-index: 50;
-}
-.datePlaceholder {
-  color: var(--offColor);
-}
-.date-field div.day-of-week-mobile {
-  display: none;
-}
-.date-field div.day-of-week p {
-  font-size: calc(50px * var(--size));
-}
-.date-field div p.type {
-  font-size: calc(10px * var(--size));
-  font-weight: bold;
-  font-family: sans-serif;
-  text-transform: uppercase;
+.skewed {
+  transform: skew(-4deg);
 }
 
 /* CLOCK */
@@ -123,6 +87,56 @@ body {
 .clock-field .am,
 .clock-field .pm {
   color: var(--offColor);
+}
+
+/* DATE */
+.date-weather {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.date-field {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.date-field div {
+  position: relative;
+}
+.date-field div p {
+  font-size: calc(34px * var(--size));
+  position: relative;
+  z-index: 100;
+}
+.date-field div p.placeholder {
+  color: var(--offColor);
+  position: absolute;
+  top: 0;
+  z-index: 50;
+}
+.datePlaceholder {
+  color: var(--offColor);
+}
+.date-field div.day-of-week-mobile {
+  display: none;
+}
+.date-field div.day-of-week p {
+  font-size: calc(50px * var(--size));
+}
+.date-field div p.type {
+  font-size: calc(10px * var(--size));
+  font-weight: bold;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+.month-day-year {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Weather */
+.weather p {
+  font-size: calc(20px * var(--size));
 }
 
 /* Resizability */
