@@ -1,19 +1,22 @@
+@size-multiplier: 2.5;
 :root {
   --size: 2.5;
   --offColor: #191919;
 }
+
 /*DIGITAL CLOCK FONT*/
 @font-face {
   font-family: "digital-7";
   src: url("../fonts/digital-7.ttf");
 }
+
 body {
   display: flex;
   flex-direction: column;
   background-color: #000000;
 }
 .clock-display h1 {
-  font-size: calc(14px * 2.5);
+  font-size: calc(14px * @size-multiplier);
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
@@ -42,6 +45,7 @@ body {
 .skewed {
   transform: skew(-4deg);
 }
+
 /* CLOCK */
 .clock-field {
   display: flex;
@@ -83,6 +87,7 @@ body {
 .clock-field .pm {
   color: var(--offColor);
 }
+
 /* DATE */
 .date-weather {
   display: flex;
@@ -127,10 +132,12 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 /* Weather */
 .weather p {
   font-size: calc(20px * var(--size));
 }
+
 /* Resizability */
 @media (max-width: 1248px) {
   :root {
@@ -149,7 +156,7 @@ body {
 }
 @media (max-width: 768px) {
   :root {
-    --size: 1;
+    --size: 1.0;
   }
   .date-field {
     justify-content: space-evenly;
@@ -188,7 +195,7 @@ body {
     font-size: calc(42px * var(--size));
   }
   .date-field div p {
-    font-size: calc(24px * var(--size)) x;
+    font-size: calc(24px * var(--size))x;
   }
   .clock-field div p {
     font-size: calc(60px * var(--size));
