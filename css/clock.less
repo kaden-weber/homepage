@@ -1,11 +1,16 @@
+@size-multiplier: 2.5;
+@offColor: #191919;
+
 :root {
   --size: 2.5;
 }
+
 /*DIGITAL CLOCK FONT*/
 @font-face {
   font-family: "digital-7";
   src: url("../fonts/digital-7.ttf");
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -23,17 +28,17 @@ body {
   margin: calc(60px * var(--size)) auto 0 auto;
   background-color: #000000;
   color: #ffffff;
-}
-.clock-display h1 {
-  font-size: calc(14px * 2.5);
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: sans-serif;
-  padding-bottom: calc(15px * var(--size));
-}
-.clock-display p {
-  margin: 0;
+  h1 {
+    font-size: calc(14px * @size-multiplier);
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    padding-bottom: calc(15px * var(--size));
+  }
+  p {
+    margin: 0;
+  }
 }
 .light-on {
   color: #ffffff !important;
@@ -41,47 +46,49 @@ body {
 .skewed {
   transform: skew(-4deg);
 }
+
 /* CLOCK */
 .clock-field {
   display: flex;
   justify-content: center;
+  div {
+    display: inline-block;
+    position: relative;
+  }
+  p {
+    font-size: calc(100px * var(--size));
+    position: relative;
+    z-index: 100;
+  }
+  .numbers {
+    .placeholder {
+    color: @offColor;
+    position: absolute;
+    top: 0;
+    z-index: 50;
+    .type {
+      font-size: calc(10px * var(--size));
+      font-weight: bold;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      margin-top: calc(-10px * var(--size));
+    }
+  }
+  .am-pm {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    width: calc(20px * var(--size));
+    div p {
+      font-size: calc(12px * var(--size));
+      font-weight: bold;
+      width: 100%;
+    }
+  }
+  .am, .pm {
+    color: @offColor;
+  }
 }
-.clock-field div {
-  display: inline-block;
-  position: relative;
-}
-.clock-field p {
-  font-size: calc(100px * var(--size));
-  position: relative;
-  z-index: 100;
-}
-.clock-field .numbers .placeholder {
-  color: #191919;
-  position: absolute;
-  top: 0;
-  z-index: 50;
-}
-.clock-field .numbers .type {
-  font-size: calc(10px * var(--size));
-  font-weight: bold;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  margin-top: calc(-10px * var(--size));
-}
-.clock-field .am-pm {
-  font-family: sans-serif;
-  text-transform: uppercase;
-  width: calc(20px * var(--size));
-}
-.clock-field .am-pm div p {
-  font-size: calc(12px * var(--size));
-  font-weight: bold;
-  width: 100%;
-}
-.clock-field .am,
-.clock-field .pm {
-  color: #191919;
-}
+
 /* DATE */
 .date-weather {
   display: flex;
@@ -92,44 +99,48 @@ body {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-}
-.date-field div {
-  position: relative;
-}
-.date-field div p {
-  font-size: calc(34px * var(--size));
-  position: relative;
-  z-index: 100;
-}
-.date-field div p.placeholder {
-  color: #191919;
-  position: absolute;
-  top: 0;
-  z-index: 50;
+  div {
+    position: relative;
+    p {
+      font-size: calc(34px * var(--size));
+      position: relative;
+      z-index: 100;
+      .placeholder {
+        color: @offColor;
+        position: absolute;
+        top: 0;
+        z-index: 50;
+      }
+      .type {
+        font-size: calc(10px * var(--size));
+        font-weight: bold;
+        font-family: sans-serif;
+        text-transform: uppercase;
+      }
+    }
+    .day-of-week-mobile {
+      display: none;
+    }
+    .day-of-week p {
+      font-size: calc(50px * var(--size));
+    }
+  }
 }
 .datePlaceholder {
-  color: #191919;
+  color: @offColor;
 }
-.date-field div.day-of-week-mobile {
-  display: none;
-}
-.date-field div.day-of-week p {
-  font-size: calc(50px * var(--size));
-}
-.date-field div p.type {
-  font-size: calc(10px * var(--size));
-  font-weight: bold;
-  font-family: sans-serif;
-  text-transform: uppercase;
-}
+
+
 .month-day-year {
   display: flex;
   justify-content: space-between;
 }
+
 /* Weather */
 .weather p {
   font-size: calc(20px * var(--size));
 }
+
 /* Resizability */
 @media (max-width: 1248px) {
   :root {
@@ -148,7 +159,7 @@ body {
 }
 @media (max-width: 768px) {
   :root {
-    --size: 1;
+    --size: 1.0;
   }
   .date-field {
     justify-content: space-evenly;
@@ -187,7 +198,7 @@ body {
     font-size: calc(42px * var(--size));
   }
   .date-field div p {
-    font-size: calc(24px * var(--size)) x;
+    font-size: calc(24px * var(--size))x;
   }
   .clock-field div p {
     font-size: calc(60px * var(--size));
