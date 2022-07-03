@@ -1,6 +1,5 @@
 :root {
   --size: 2.5;
-  --offColor: #191919;
 }
 /*DIGITAL CLOCK FONT*/
 @font-face {
@@ -11,17 +10,6 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #000000;
-}
-.clock-display h1 {
-  font-size: calc(14px * 2.5);
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: sans-serif;
-  padding-bottom: calc(15px * var(--size));
-}
-.clock-display p {
-  margin: 0;
 }
 .clock-display {
   margin: 0;
@@ -35,6 +23,17 @@ body {
   margin: calc(60px * var(--size)) auto 0 auto;
   background-color: #000000;
   color: #ffffff;
+}
+.clock-display h1 {
+  font-size: calc(14px * 2.5);
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  padding-bottom: calc(15px * var(--size));
+}
+.clock-display p {
+  margin: 0;
 }
 .light-on {
   color: #ffffff !important;
@@ -51,13 +50,13 @@ body {
   display: inline-block;
   position: relative;
 }
-.clock-field div p {
+.clock-field p {
   font-size: calc(100px * var(--size));
   position: relative;
   z-index: 100;
 }
 .clock-field .numbers .placeholder {
-  color: var(--offColor);
+  color: #191919;
   position: absolute;
   top: 0;
   z-index: 50;
@@ -81,7 +80,7 @@ body {
 }
 .clock-field .am,
 .clock-field .pm {
-  color: var(--offColor);
+  color: #191919;
 }
 /* DATE */
 .date-weather {
@@ -103,13 +102,13 @@ body {
   z-index: 100;
 }
 .date-field div p.placeholder {
-  color: var(--offColor);
+  color: #191919;
   position: absolute;
   top: 0;
   z-index: 50;
 }
 .datePlaceholder {
-  color: var(--offColor);
+  color: #191919;
 }
 .date-field div.day-of-week-mobile {
   display: none;
